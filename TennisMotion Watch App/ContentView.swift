@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+// Accelerometer data
+let acc = ["1","2","3"]
+
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Accelerometer data:")
+            Text(acc.joined(separator:" "))
         }
         .padding()
     }
