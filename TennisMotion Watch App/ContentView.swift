@@ -95,8 +95,18 @@ struct ContentView: View {
         } else {
             print("Gyro data not available")
         }
+    }
+    
+    // Func for rounding float to a certain dp
+    func dpRound(num:Float64,prc:Int) -> Float64 {
+        
+        // Rounding and returning
+        var scaleF: Float64 = pow(Double(10),Double(prc))
+        let roundNum = (num * scaleF).rounded() / scaleF
+        return roundNum
         
     }
+    
 }
 
 #Preview {
