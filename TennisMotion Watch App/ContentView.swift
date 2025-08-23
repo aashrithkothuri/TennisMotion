@@ -6,23 +6,20 @@ let MotionManager = CMMotionManager()
 
 struct ContentView: View {
     // State variables to store sensor data
-    @State private var acc: [Float64] = [0.0, 0.0, 0.0]
-    @State private var gyro: [Float64] = [0.0, 0.0, 0.0]
+    @State private var acc: [[Float64]] = [[0.0, 0.0, 0.0]]
+    @State private var gyro: [[Float64]] = [[0.0, 0.0, 0.0]]
     
     
     // Body
     var body: some View {
         VStack {
-            Text("Accelerometer data:")
-            
-            // Display accelerometer data
-            Text("X: \(acc[0]), Y: \(acc[1]), Z: \(acc[2])")
-                .padding()
-            Text("Gyro data:")
-            
-            // Display accelerometer data
-            Text("X: \(gyro[0]), Y: \(gyro[1]), Z: \(gyro[2])")
-                .padding()
+            Button("Get data") {
+                
+                // Printing timestamp, acc and gyro data
+                print(acc)
+                print(gyro)
+                print(Date().timeIntervalSince1970)
+            }
         }
         .onAppear {
             // Start accelerometer data collection when the view appears
@@ -54,7 +51,13 @@ struct ContentView: View {
 
                     // Update the state variable with the new data
                     DispatchQueue.main.async {
-                        self.acc = [x, y, z]
+                        
+                        // Adding acceleration to array, removing first item if array exceeds 10 items
+                        self.acc.append([x,y,z])
+                        if self.acc.count == 11 {
+                            self.acc.remove(at:0)
+                        }
+                        
                     }
                 }
             }
@@ -88,7 +91,13 @@ struct ContentView: View {
 
                     // Update the state variable with the new data
                     DispatchQueue.main.async {
-                        self.gyro = [x, y, z]
+                        
+                        // Adding gyro reading to array, removing first item if array exceeds 10 items
+                        self.gyro.append([x,y,z])
+                        if self.gyro.count == 11 {
+                            self.gyro.remove(at:0)
+                        }
+                        
                     }
                 }
             }
@@ -101,7 +110,7 @@ struct ContentView: View {
     func dpRound(num:Float64,prc:Int) -> Float64 {
         
         // Rounding and returning
-        var scaleF: Float64 = pow(Double(10),Double(prc))
+        let scaleF: Float64 = pow(Double(10),Double(prc))
         let roundNum = (num * scaleF).rounded() / scaleF
         return roundNum
         

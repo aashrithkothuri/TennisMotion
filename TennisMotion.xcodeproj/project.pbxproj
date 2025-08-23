@@ -390,6 +390,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = TennisMotion;
+				INFOPLIST_KEY_NSMotionUsageDescription = NSMotionUsageDescription;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.github.aashrithkothuri.TennisMotion-iOS-App";
 				INFOPLIST_KEY_WKWatchOnly = NO;
@@ -421,6 +422,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = TennisMotion;
+				INFOPLIST_KEY_NSMotionUsageDescription = NSMotionUsageDescription;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.github.aashrithkothuri.TennisMotion-iOS-App";
 				INFOPLIST_KEY_WKWatchOnly = NO;
